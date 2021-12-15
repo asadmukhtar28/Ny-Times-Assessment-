@@ -1,4 +1,4 @@
-package com.asad.nytimes.ui.articles
+package com.asad.nytimes.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

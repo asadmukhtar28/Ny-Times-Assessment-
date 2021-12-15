@@ -1,4 +1,4 @@
-package com.asad.nytimes.ui.articles.articles.adapter
+package com.asad.nytimes.ui.articles.adapter
 
 import androidx.lifecycle.MutableLiveData
 import com.asad.nytimes.models.Article

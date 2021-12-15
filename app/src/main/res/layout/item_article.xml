@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.asad.nytimes.ui.articles.articles.adapter.ArticleItemViewModel" />
+            type="com.asad.nytimes.ui.articles.adapter.ArticleItemViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

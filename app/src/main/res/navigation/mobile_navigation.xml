@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_articles_fragment"
-        android:name="com.asad.nytimes.ui.articles.articles.ArticlesFragment"
-        android:label="ArticlesFragment"
+        android:name="com.asad.nytimes.ui.articles.ArticlesFragment"
+        android:label="Ny Times Most Popular"
         tools:layout="@layout/fragment_articles" />
 </navigation>

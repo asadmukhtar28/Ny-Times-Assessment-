@@ -1,4 +1,4 @@
-package com.asad.nytimes.ui.articles.articles
+package com.asad.nytimes.ui.articles
 
 import androidx.fragment.app.viewModels
 import com.asad.nytimes.BR

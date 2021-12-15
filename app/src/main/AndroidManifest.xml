@@ -11,7 +11,7 @@
         android:name=".NyTimesApp"
         android:theme="@style/Theme.NyTimes">
         <activity
-            android:name=".ui.articles.ArticlesActivity"
+            android:name=".ui.ArticlesActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
