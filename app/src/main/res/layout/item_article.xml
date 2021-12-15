@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.asad.nytimes.ui.articles.articles.adapter.ArticleItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_article_thumb"
+                imageUrl="@{viewModel.articleThumb}"
+                android:layout_width="@dimen/item_article_image_width_height"
+                android:layout_height="@dimen/item_article_image_width_height"
+                android:layout_margin="@dimen/item_article_image_margin"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_article_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_article_tv_name_margin_start"
+                android:layout_marginTop="@dimen/item_article_tv_name_margin_top_end"
+                android:layout_marginEnd="@dimen/item_article_tv_name_margin_top_end"
+                android:ellipsize="end"
+                android:hint="Article 1"
+                android:maxLines="2"
+                android:text="@{viewModel.articleTitle}"
+                android:textColor="@color/teal_200"
+                android:textSize="@dimen/item_article_tv_name_text_size"
+                android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toStartOf="@+id/iv_right_arrow"
+                app:layout_constraintStart_toEndOf="@+id/iv_article_thumb"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_article_abstract"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_article_tv_detail_margin_top_bottom"
+                android:layout_marginBottom="@dimen/item_article_tv_detail_margin_top_bottom"
+                android:ellipsize="end"
+                android:hint="Article 1 Abstract"
+                android:maxLines="2"
+                android:text="@{viewModel.articleAbstract}"
+                android:textSize="@dimen/item_article_tv_detail_text_size"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_article_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_article_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_article_name" />
+
+            <ImageView
+                android:id="@+id/iv_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:adjustViewBounds="true"
+                android:padding="6dp"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
