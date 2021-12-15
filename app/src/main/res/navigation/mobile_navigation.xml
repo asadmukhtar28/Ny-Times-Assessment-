@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/nav_articles_fragment">
 
+    <fragment
+        android:id="@+id/nav_articles_fragment"
+        android:name="com.asad.nytimes.ui.articles.articles.ArticlesFragment"
+        android:label="ArticlesFragment"
+        tools:layout="@layout/fragment_articles" />
 </navigation>
