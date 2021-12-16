@@ -19,7 +19,7 @@ class ArticlesRepository @Inject constructor(val apiServices: ApiServices) : Bas
             val result = makeApiCall { apiServices.getArticles("$pageId.json") }
             emit(result)
         }.flowOn(Dispatchers.IO).catch {
-            emit(State.Error(State.ErrorMessages.SomethingWentWrong()))
+            emit(State.Error(State.ResponseError.SomethingWentWrong()))
         }
     }
 }
