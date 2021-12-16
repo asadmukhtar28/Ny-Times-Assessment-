@@ -1,7 +1,7 @@
 package com.asad.nytimes.di.module
 
 import com.asad.nytimes.BuildConfig
-import com.asad.nytimes.data.remote.AppService
+import com.asad.nytimes.data.remote.ApiServices
 import com.asad.nytimes.utils.ApiHttpClient
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -18,14 +18,14 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitService(): AppService =
+    fun provideRetrofitService(): ApiServices =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_API_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(ApiHttpClient.getHTTPClient())
             .build()
-            .create(AppService::class.java)
+            .create(ApiServices::class.java)
 
 
 }
