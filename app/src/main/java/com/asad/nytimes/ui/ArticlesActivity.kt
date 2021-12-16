@@ -8,7 +8,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.asad.nytimes.R
 import com.asad.nytimes.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ArticlesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
