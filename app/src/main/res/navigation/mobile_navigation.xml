@@ -12,13 +12,13 @@
         tools:layout="@layout/fragment_articles">
         <action
             android:id="@+id/action_nav_articles_fragment_to_articleDetailFragment"
-            app:destination="@id/articleDetailFragment" />
+            app:destination="@id/nav_article_detail_fragment" />
 
     </fragment>
     <fragment
-        android:id="@+id/articleDetailFragment"
+        android:id="@+id/nav_article_detail_fragment"
         android:name="com.asad.nytimes.ui.articledetail.ArticleDetailFragment"
-        android:label="ArticleDetailFragment"
+        android:label="Article Detail"
         tools:layout="@layout/fragment_article_detail">
         <argument
             android:name="article"
