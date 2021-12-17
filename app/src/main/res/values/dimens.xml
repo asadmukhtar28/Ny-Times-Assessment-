@@ -9,4 +9,5 @@
     <dimen name="item_article_tv_name_margin_top_end">8dp</dimen>
     <dimen name="item_article_tv_detail_margin_top_bottom">8dp</dimen>
     <dimen name="item_article_tv_detail_text_size">15sp</dimen>
+    <dimen name="article_detail_iv_height">250dp</dimen>
 </resources>
