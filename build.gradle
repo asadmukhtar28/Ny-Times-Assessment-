@@ -12,6 +12,7 @@ buildscript {
         hiltVersion = '2.38.1'
         coreKtxVersion = '1.7.0'
         materialVersion = '1.4.0'
+        navVersion = "2.3.5"
         vectorVersion = '1.1.0'
         appCompatVersion = '1.4.0'
         constraintLayoutVersion = '2.1.2'
@@ -38,6 +39,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
