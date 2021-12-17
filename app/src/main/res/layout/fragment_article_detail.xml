@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.asad.nytimes.ui.articledetail.ArticleDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.articledetail.ArticleDetailFragment">
+
+        <ImageView
+            android:id="@+id/iv_article_thumb"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/article_detail_iv_height"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_article"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_article_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginEnd="@dimen/item_article_tv_name_margin_top_end"
+            android:ellipsize="end"
+            android:hint="Article 1"
+            android:maxLines="2"
+            android:text="@{viewModel.articleTitle}"
+            android:textColor="@color/teal_200"
+            android:textSize="@dimen/item_article_tv_name_text_size"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_article_thumb" />
+
+        <TextView
+            android:id="@+id/tv_article_abstract"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_article_tv_detail_margin_top_bottom"
+            android:layout_marginBottom="@dimen/item_article_tv_detail_margin_top_bottom"
+            android:ellipsize="end"
+            android:hint="Article 1 Abstract"
+            android:maxLines="1"
+            android:text="@{viewModel.articleAbstract}"
+            android:textSize="@dimen/item_article_tv_detail_text_size"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@+id/tv_article_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_name" />
+
+        <TextView
+            android:id="@+id/tv_article_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="@dimen/item_article_tv_detail_margin_top_bottom"
+            android:ellipsize="end"
+            android:hint="THOMOPOSON"
+            android:maxLines="1"
+            android:text="@{viewModel.articleSource}"
+            android:textSize="13sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/tv_article_published_date"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_abstract"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_abstract" />
+
+        <TextView
+            android:id="@+id/tv_article_published_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:hint="2017-06-23"
+            android:maxLines="1"
+            android:text="@{viewModel.publishedDate}"
+            android:textSize="13sp"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_article_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_article_author" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
