@@ -1,6 +1,6 @@
 # Ny Time
 
-Ny Time is a Android project for check most popular articles .
+Ny Time is a Android project for showing most popular articles .
 
 ## Installation
 
