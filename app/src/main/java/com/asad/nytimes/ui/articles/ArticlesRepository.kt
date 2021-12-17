@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class ArticlesRepository @Inject constructor(val apiServices: ApiServices) : BaseRepository() {
 
-    suspend fun fetchArticles(pageId: Int): Flow<State<ArticleResponse>> {
+    suspend fun fetchArticles(pageId: Int = 1): Flow<State<ArticleResponse>> {
         return flow {
             emit(State.Loading())
             val result = makeApiCall { apiServices.getArticles("$pageId.json") }

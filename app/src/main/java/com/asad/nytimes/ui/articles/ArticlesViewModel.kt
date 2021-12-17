@@ -17,7 +17,7 @@ class ArticlesViewModel @Inject constructor(val repository: ArticlesRepository) 
 
     fun fetchArticles() {
         viewModelScope.launch {
-            repository.fetchArticles(1).collect {
+            repository.fetchArticles().collect {
                 when (it) {
                     is State.Loading -> {
                         isLoading.value = true

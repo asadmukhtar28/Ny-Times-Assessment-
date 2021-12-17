@@ -32,11 +32,13 @@ class ArticlesFragment :
         }
 
         setUpObserver()
-        viewModel.fetchArticles()
+
+        if (viewModel.articles.value == null)
+            viewModel.fetchArticles()
     }
 
     private fun setUpObserver() {
-        viewModel.error.observe(viewLifecycleOwner, {
+        viewModel.error.observe(this, {
             val errorMessage = setAppropriateErrorMessage(it)
             Snackbar.make(viewBinding.root, errorMessage, Snackbar.LENGTH_LONG)
                 .setAction("Ok") {}
