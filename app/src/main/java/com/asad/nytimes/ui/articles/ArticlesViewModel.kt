@@ -1,29 +1,50 @@
 package com.asad.nytimes.ui.articles
 
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.asad.nytimes.models.ArticleResponse
+import com.asad.nytimes.models.Article
 import com.asad.nytimes.models.base.State
 import com.asad.nytimes.ui.base.BaseViewModel
-import com.asad.nytimes.utils.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ArticlesViewModel @Inject constructor(val repository: ArticlesRepository) : BaseViewModel() {
 
-    var apiResponse: MutableSharedFlow<State<ArticleResponse>> = MutableSharedFlow()
-    private val _fetchMoviesApiResponse = SingleLiveEvent<State<ArticleResponse>>()
-    val fetchMoviesApiResponse: LiveData<State<ArticleResponse>> = _fetchMoviesApiResponse
+    val articles = MutableLiveData<List<Article>>()
 
     fun fetchArticles() {
         viewModelScope.launch {
             repository.fetchArticles(1).collect {
-                _fetchMoviesApiResponse.value = it
+                when (it) {
+                    is State.Loading -> {
+                        isLoading.value = true
+                    }
+                    is State.Success -> {
+                        isLoading.value = false
+                        it.wrapperData.articles.let { list ->
+                            if (list.isNotEmpty()) {
+                                articles.value = list
+                            }
+                        }
+                    }
+                    is State.Error -> {
+                        isLoading.value = false
+                        error.value = it.responseResponseError
+                        /*val errorMessage = when (it.responseResponseError) {
+                            is State.ResponseError.SomethingWentWrong -> {
+                                if (!TextUtils.isEmpty(it.responseResponseError.message))
+                                    it.responseResponseError.message
+                                else getString(R.string.something_went_wrong)
+                            }
+                            is State.ResponseError.InternetConnectionResponseError -> {
+                                getString(R.string.internet_error)
+                            }
+                        }*/
+                    }
+                }
             }
         }
     }
