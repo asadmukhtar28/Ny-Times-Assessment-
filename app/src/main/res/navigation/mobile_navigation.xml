@@ -9,5 +9,19 @@
         android:id="@+id/nav_articles_fragment"
         android:name="com.asad.nytimes.ui.articles.ArticlesFragment"
         android:label="Ny Times Most Popular"
-        tools:layout="@layout/fragment_articles" />
+        tools:layout="@layout/fragment_articles">
+        <action
+            android:id="@+id/action_nav_articles_fragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.asad.nytimes.ui.articledetail.ArticleDetailFragment"
+        android:label="ArticleDetailFragment"
+        tools:layout="@layout/fragment_article_detail">
+        <argument
+            android:name="article"
+            app:argType="com.asad.nytimes.models.Article" />
+    </fragment>
 </navigation>
