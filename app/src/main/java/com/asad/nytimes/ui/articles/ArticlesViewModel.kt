@@ -33,16 +33,6 @@ class ArticlesViewModel @Inject constructor(val repository: ArticlesRepository) 
                     is State.Error -> {
                         isLoading.value = false
                         error.value = it.responseResponseError
-                        /*val errorMessage = when (it.responseResponseError) {
-                            is State.ResponseError.SomethingWentWrong -> {
-                                if (!TextUtils.isEmpty(it.responseResponseError.message))
-                                    it.responseResponseError.message
-                                else getString(R.string.something_went_wrong)
-                            }
-                            is State.ResponseError.InternetConnectionResponseError -> {
-                                getString(R.string.internet_error)
-                            }
-                        }*/
                     }
                 }
             }
