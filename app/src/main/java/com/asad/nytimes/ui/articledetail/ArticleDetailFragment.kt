@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ArticleDetailFragment :
     BaseFragment<ArticleDetailViewModel, FragmentArticleDetailBinding>(R.layout.fragment_article_detail) {
-    val args: ArticleDetailFragmentArgs by navArgs()
+    private val args: ArticleDetailFragmentArgs by navArgs()
 
     override val viewModel: ArticleDetailViewModel by viewModels()
 

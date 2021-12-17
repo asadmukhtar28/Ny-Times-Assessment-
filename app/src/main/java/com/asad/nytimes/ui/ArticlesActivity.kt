@@ -24,11 +24,12 @@ class ArticlesActivity : AppCompatActivity() {
     }
 
     private fun setUpActionBar() {
+
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_articles_fragment
+                R.id.nav_articles_fragment, R.id.nav_article_detail_fragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
